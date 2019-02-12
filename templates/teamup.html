@@ -1,0 +1,45 @@
+
+{% block content %}
+{% load staticfiles %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1">
+    <title>Amrita Athletics</title>
+
+    	<link rel="stylesheet" href="{% static 'css/custstyle.css' %}">
+      <link rel="stylesheet" href="{% static 'css/navbkg.css' %}">
+  <script src="{% static 'script4.js' %}" charset="utf-8"></script>
+</head>
+
+{% if user.is_authenticated %}
+<body onload="Sub();displayForm();" scroll="no">
+{% else %}
+<script>
+window.location.href = "/sports/login/";
+</script>
+<body onload="" scroll="no">
+{% endif %}
+  <div id="landing">
+  <img src="{% static 'images/d.png' %}" id="logo" width="1000px">
+    <img src="{% static 'images/c.png' %}" id="registerBkg">
+
+    <div id="form_field">
+      <p id="welcomeText"></p>
+      <!--<a href="#" id="RegisterBtn2" onclick="displayForm()">Welcome</a>-->
+
+      <form method="post" name="form1" id="RegisterForm" onsubmit="return selectValidate()">
+      {% csrf_token %}
+      {% for field in form %}
+        <div>
+          {{ field }}
+        </div>
+        <p class="errorlist" id="err" style="margin-top:-25px; opacity: 0;">You cannot register for the same event more than once</p>
+      {% endfor %}
+          <input type="submit" class="FormSubmit" onclick="" value="Submit"></input>
+      </form>
+    </div>
+  </div>
+  {% endblock %}
+</body>

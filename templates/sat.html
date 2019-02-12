@@ -1,0 +1,65 @@
+
+{% block content %}
+{% load staticfiles %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1">
+    <title>Amrita Athletics</title>
+
+    	<link rel="stylesheet" href="{% static 'css/custstyle.css' %}">
+      <link rel="stylesheet" href="{% static 'css/navbkg.css' %}">
+</head>
+
+<body onload="" scroll="no">
+  <div id="landing">
+    <!--<img src="{% static 'images/satt.png' %}" id="satBkg">
+    <div id="sat_container">
+      <h1> Tech Team </h1>
+      <img src="{% static 'images/1.png' %}" class="sat_item">
+      <img src="{% static 'images/2.png' %}" class="sat_item">
+      <img src="{% static 'images/3.png' %}" class="sat_item">
+      <img src="{% static 'images/4.png' %}" class="sat_item">
+      <img src="{% static 'images/5.png' %}" class="sat_item">
+      <img src="{% static 'images/6.png' %}" class="sat_item">
+      <img src="{% static 'images/7.png' %}" class="sat_item">
+    </div>-->
+
+  <div class="sat_container">
+  <input type="checkbox" id="toggle" style="position: absolute; display: none" />
+  <label id="show-menu" for="toggle">
+    <div class="btn">
+      <div class="circle" style="animation-delay: 0s"></div>
+        <img class="material-icons md-36 toggleBtn menuBtn" src="{% static 'images/sat.png' %}">
+    </div>
+    <div class="btn">
+      <img class="material-icons md-36" src="{% static 'images/1.png' %}">
+    </div>
+    <div class="btn">
+      <img class="material-icons md-36" src="{% static 'images/2.png' %}">
+    </div>
+    <div class="btn">
+      <img class="material-icons md-36" src="{% static 'images/3.png' %}">
+    </div>
+    <div class="btn">
+      <img class="material-icons md-36" src="{% static 'images/4.png' %}">
+    </div>
+    <div class="btn">
+      <div class="material-icons md-36"></div>
+    </div>
+    <div class="btn">
+      <img class="material-icons md-36" src="{% static 'images/6.png' %}">
+    </div>
+    <div class="btn">
+      <img class="material-icons md-36" src="{% static 'images/7.png' %}">
+    </div>
+    <div class="btn">
+      <img class="material-icons md-36" src="{% static 'images/5.png' %}">
+    </div>
+  </label>
+</div>
+  </div>
+  {% endblock %}
+</body>
+</html>

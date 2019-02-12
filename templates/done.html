@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <script>
+  window.location.href = "/sports/teamup/";
+  </script>
+  <p2>Hi {{ user.username }}!</p2>
+  <<p2>Your registration has been complete, you can now<a href="{% url 'logout' %}" style="font-size: 40px;">logout</a> now</p>
+  </br>
+  </br>
+{% else %}
+  </br>
+  <a href="{% url 'signup' %}" style="font-size: 75px;">Sign up</a>
+  </br>
+
+{% endif %}
+{% endblock %}

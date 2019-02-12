@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1">
+    <title>{% block title %}Amrita Athletics{% endblock %}</title>
+
+	<link rel="stylesheet" href="{% static 'css/custstyle.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbkg.css' %}">
+  <script src="{% static 'script2.js' %}"charset="utf-8"></script>
+</head>
+
+{% if user.is_authenticated %}
+<body scroll="no" onload="slidein();switchToTeamup();" style="border: 0;">
+{% else %}
+<body scroll="no" onload="slidein();switchToRegister();" style="border: 0;">
+{% endif %}
+<iframe src="/sports/signup/" id="RegisterPage"></iframe>
+<iframe src="/sports/teamup/" id="TeamupPage"></iframe>
+<iframe src="/sports/sat/" id="SatPage"></iframe>
+<iframe src="/sports/login/" id="LoginPage"></iframe>
+
+  <div id="navBar">
+  {% if user.is_authenticated %}
+    <img src="{% static 'images/home.svg' %}" id="homeIcon" width="50px" onclick="switchToTeamup()"><p id="tooltip">Home</p>
+    <img src="{% static 'images/sat.png' %}" id="satIcon" width="80px" onclick="switchToSat()"><p id="tooltip">Satbhav</p>
+    <a href="{% url 'logout' %}"><img src="{% static 'images/logout.png' %}" id="loginIcon" width="50px" onclick=""><p id="tooltip">Login/logout</p></a>
+  {% else %}
+    <img src="{% static 'images/home.svg' %}" id="homeIcon" width="50px" onclick="switchToRegister()"><p id="tooltip">Home</p>
+    <img src="{% static 'images/sat.png' %}" id="satIcon" width="80px" onclick="switchToSat()"><p id="tooltip">Satbhav</p>
+    <a href="#" class="logLink"><img src="{% static 'images/login.svg' %}" id="loginIcon" width="47px" onclick="switchToLogin()"><p id="tooltip">Login/Logout</p></a>
+  {% endif %}
+  </div>
+</body>
+</html>
